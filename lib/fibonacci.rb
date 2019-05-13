@@ -7,6 +7,8 @@
 
 # Time complexity: O(n)
 # Space complexity: O(1)
+
+# RECURSIVE SOLUTION
 def fibonacci(n)
   raise ArgumentError if n.nil? || n < 0
   if n == 0 
@@ -18,4 +20,22 @@ def fibonacci(n)
   end
 
   return fibonacci(n-1) + fibonacci(n-2)
+end
+
+
+# ITERATIVE SOLUTION
+
+def fibonacci(num)
+  raise ArgumentError if num.nil? || num < 0
+
+  x = 0
+  y = 1
+
+  num.times do
+    sum = x + y
+    x = y
+    y = sum
+  end
+
+  return x
 end
